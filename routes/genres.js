@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const { Genre, validateGenre } = require("../models/genre");
 const admin = require("../middleware/admin");
 
+app.use(cors());
+
 router.get("/", async (req, res, next) => {
   const genres = await Genre.find().sort("name");
   res.send(genres);
