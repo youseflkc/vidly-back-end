@@ -7,6 +7,7 @@ const returns = require("../routes/returns");
 const auth = require("../routes/auth");
 const error = require("../middleware/error");
 const express = require("express");
+const cors = require("cors");
 
 module.exports = function (app) {
   app.use(express.json());
@@ -18,14 +19,5 @@ module.exports = function (app) {
   app.use("/api/auth", auth);
   app.use("api/returns", returns);
   app.use(error);
-  app.use((req, res, next) => {
-    res.header(
-      "Access-Control-Allow-Origin",
-      "https://boiling-beach-59782.herokuapp.com/"
-    );
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-  });
+  app.use(cors());
 };
