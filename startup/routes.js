@@ -18,4 +18,14 @@ module.exports = function (app) {
   app.use("/api/auth", auth);
   app.use("api/returns", returns);
   app.use(error);
+  app.use((req, res, next) => {
+    res.header(
+      "Access-Control-Allow-Origin",
+      "https://boiling-beach-59782.herokuapp.com/"
+    );
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+  });
 };
