@@ -7,7 +7,6 @@ const returns = require("../routes/returns");
 const auth = require("../routes/auth");
 const error = require("../middleware/error");
 const express = require("express");
-const cors = require("cors");
 
 module.exports = function (app) {
   app.use(express.json());

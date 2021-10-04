@@ -1,6 +1,7 @@
 require("express-async-errors");
 require("winston-mongodb");
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 app.use(cors());
