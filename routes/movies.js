@@ -38,7 +38,7 @@ router.post("/", auth, async (req, res) => {
 router.put("/:id", auth, async (req, res) => {
   const id = req.params.id;
   const genre = await Genre.findById(req.body.genreId);
-  if (genre) return res.status(400).send("Invalig Genre");
+  if (!genre) return res.status(400).send("Invalid Genre");
   const movie = {
     ...req.body,
     genre: {
@@ -64,7 +64,7 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-router.delete("/:id",auth,  async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
     const movie = await Movie.findByIdAndRemove(req.params.id);
     console.log(movie);
