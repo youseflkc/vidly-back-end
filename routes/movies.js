@@ -46,7 +46,6 @@ router.put("/:id", auth, async (req, res) => {
       _id: genre._id,
     },
   };
-  console.log(movie);
 
   const { error } = validateMovie(req.body);
 
